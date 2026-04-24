@@ -1,0 +1,21 @@
+stages:
+  data:
+    cmd: python3 src/data.py
+    deps:
+      - src/data.py
+    outs:
+      - data/raw/iris.csv
+
+  prepare:
+    cmd: python3 src/prepare.py
+    deps:
+      - src/prepare.py
+      - data/raw/iris.csv
+    params:
+      - prepare.test_size
+      - prepare.random_state
+    outs:
+      - data/processed/X_train.npy
+      - data/processed/X_test.npy
+      - data/processed/y_train.npy
+      - data/processed/y_test.npy
