@@ -6,8 +6,8 @@ train:
   model_type: logistic_regression
   random_state: 42
   logistic_regression:
-    max_iter: 100
-    C: 1.0
+    max_iter: 1000
+    C: 0.1
   random_forest:
     n_estimators: 100
     max_depth: 5
