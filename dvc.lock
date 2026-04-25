@@ -21,8 +21,8 @@ stages:
       size: 2777
     - path: src/prepare.py
       hash: md5
-      md5: 14bf6fcba8a0de51627deb736e3d13bb
-      size: 765
+      md5: 0cef90b30b220a7958da5938774cf705
+      size: 769
     params:
       params.yaml:
         prepare.random_state: 42
@@ -44,3 +44,38 @@ stages:
       hash: md5
       md5: 2c2741a338b44cc698b03ddaddd77a6a
       size: 1088
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/processed/X_test.npy
+      hash: md5
+      md5: 6106b6fdfa5e57277f32c885bc1eed51
+      size: 1088
+    - path: data/processed/X_train.npy
+      hash: md5
+      md5: abdc135983612a7ff50c3a300b5b4d55
+      size: 3968
+    - path: data/processed/y_test.npy
+      hash: md5
+      md5: c8a14810d1d66e69e3149abda346c748
+      size: 368
+    - path: data/processed/y_train.npy
+      hash: md5
+      md5: 2c2741a338b44cc698b03ddaddd77a6a
+      size: 1088
+    - path: src/train.py
+      hash: md5
+      md5: 2521e2ce7dc563a0b4f8722057f6b322
+      size: 1559
+    params:
+      params.yaml:
+        train.model_type: logistic_regression
+    outs:
+    - path: metrics/train_metrics.json
+      hash: md5
+      md5: 16adfbf997206e5b202c29a479cdc684
+      size: 142
+    - path: models/model.pkl
+      hash: md5
+      md5: 4d940183ae0e3780fa044319afd76ab3
+      size: 991

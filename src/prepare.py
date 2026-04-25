@@ -1,8 +1,8 @@
 import os
-import yaml
 
 import numpy as np
 import pandas as pd
+import yaml
 from sklearn.model_selection import train_test_split
 
 with open("params.yaml", "r") as f:
@@ -16,7 +16,8 @@ y = df["target"].values
 # TODO: добавить простую предподготовку
 
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y,
+    X,
+    y,
     test_size=params["prepare"]["test_size"],
     random_state=params["prepare"]["random_state"],
     stratify=y,

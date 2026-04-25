@@ -19,3 +19,18 @@ stages:
       - data/processed/X_test.npy
       - data/processed/y_train.npy
       - data/processed/y_test.npy
+
+  train:
+    cmd: python src/train.py
+    deps:
+      - src/train.py
+      - data/processed/X_train.npy
+      - data/processed/X_test.npy
+      - data/processed/y_train.npy
+      - data/processed/y_test.npy
+    params:
+      - train.model_type
+    outs:
+      - models/model.pkl
+    metrics:
+      - metrics/train_metrics.json
