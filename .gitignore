@@ -207,6 +207,6 @@ marimo/_lsp/
 __marimo__/
 
 # DVC
-/data/processed/
-/models/
-/data/raw/
+/data
+/models
+/metrics
