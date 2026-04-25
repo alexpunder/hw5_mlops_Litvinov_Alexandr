@@ -75,4 +75,4 @@ dvc repro
 3. `S3` - удаленное хранилище данных
 4. `Prometheus+Grafana` - мониторинг
 
-![схема ml системы]("ml_blur.png")
+![схема ml системы](ml_blur.png)
