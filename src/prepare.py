@@ -13,8 +13,6 @@ df = pd.read_csv("data/raw/iris.csv")
 X = df.drop("target", axis=1).values
 y = df["target"].values
 
-# TODO: добавить простую предподготовку
-
 X_train, X_test, y_train, y_test = train_test_split(
     X,
     y,
