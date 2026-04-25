@@ -69,13 +69,13 @@ stages:
       size: 2609
     params:
       params.yaml:
-        train.model_type: logistic_regression
+        train.model_type: random_forest
     outs:
     - path: metrics/train_metrics.json
       hash: md5
-      md5: 16adfbf997206e5b202c29a479cdc684
-      size: 142
+      md5: d6ecc396ab53239356b1de40dfcbca80
+      size: 136
     - path: models/model.pkl
       hash: md5
-      md5: 32555253fbbf75a5fce6c63ec8f323bb
-      size: 9051
+      md5: a3ea9f34cb40b4f74e7e5808d52b658f
+      size: 1801688

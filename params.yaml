@@ -3,7 +3,7 @@ prepare:
   random_state: 42
 
 train:
-  model_type: logistic_regression
+  model_type: random_forest
   random_state: 42
   logistic_regression:
     max_iter: 1000

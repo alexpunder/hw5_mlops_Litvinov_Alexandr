@@ -1,0 +1,23 @@
+artifact_path: /home/alex/Develop/hw5_mlops_Litvinov_Alexandr/mlruns/1/models/m-681f81c1769f4400899af15189e3ee55/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.3
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+mlflow_version: 3.11.1
+model_id: m-681f81c1769f4400899af15189e3ee55
+model_size_bytes: 153553
+model_uuid: m-681f81c1769f4400899af15189e3ee55
+prompts: null
+run_id: d8558dd0ac374ebb8da525ad80262b5f
+utc_time_created: '2026-04-25 13:01:22.936193'
