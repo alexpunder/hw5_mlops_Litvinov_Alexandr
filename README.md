@@ -31,6 +31,31 @@ dvc pull
 ```
 dvc repro
 ```
+4. Для работы с хранилищем признаком следует поднять базу данных, например, Postgres + Docker compose и создать необходимого пользователя
+```
+docker compose up -d
+
+docker compose exec postgres psql -U postgres
+
+CREATE USER tuser WITH PASSWORD '12345';
+CREATE DATABASE mydb WITH OWNER tuser ENCODING="UTF8";
+GRANT ALL PRIVILEGES ON DATABASE mydb to tuser;
+```
+5. Инициализация Feature Store
+```
+# перейти в директорию хранилища
+cd feature_repo
+
+# применить конфигурацию
+feast apply
+
+# загрузить данные в хранилище согласно настройкам
+feast materialize-incremental $(date +%Y-%m-%d)
+```
+
+Проверить можно выполнив команду `feast ui` из директории `feature_repo`, перейти по адресу `http://0.0.0.0:8888/` и убедиться. Пример:
+
+![пример](images/5_feast_check.png)
 
 ## Описание пайплайна
 
@@ -72,7 +97,8 @@ dvc repro
 Основные блоки на схеме:
 1. `DVC` - версионирование данных
 2. `MLflow` - логирование экспериментов и управление версиями моделей
-3. `S3` - удаленное хранилище данных
-4. `Prometheus+Grafana` - мониторинг
+3. `Feast` - управление, хранение и доставка признаков
+4. `S3` - удаленное хранилище данных
+5. `Prometheus+Grafana` - мониторинг
 
 ![схема ml системы](ml_blur.png)
