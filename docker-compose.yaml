@@ -1,0 +1,15 @@
+volumes:
+  test-pg:
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234qaz
+      POSTGRES_DB: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - test-pg:/var/lib/postgresql/data
